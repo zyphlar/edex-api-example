@@ -5,13 +5,6 @@
 
 # See README for usage info.
 
-
-# Silence silly warnings and info. Make these true if you want to see HTTP/SOAP debug info.
-HTTPI.log = false
-Savon.configure do |config|
-  config.log = false
-end
-
 debug = 2    # Change from 2, to 1, to 0 as you verify things appear sane.
 user_id = "YOUR_EDEX_USERID_HERE"
 password = "YOUR_EDEX_PASSWORD_HERE"
@@ -21,6 +14,11 @@ property_id = "YOUR_PROPERTY_ID_HERE"
 require "savon"
 require 'nokogiri'
 
+# Silence silly warnings and info. Make these true if you want to see HTTP/SOAP debug info.
+HTTPI.log = false
+Savon.configure do |config|
+  config.log = false
+end
 
 client = Savon.client("http://amsi.saas.infor.com/AMSIWEBG003/edexweb/esite/leasing.asmx?wsdl")
 
